@@ -1,11 +1,8 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        hashTable = {}
+        hashMap = {}
         for i in range(len(nums)):
-            current = nums[i]
-            need = target - current
-            if need in hashTable:
-                return (hashTable[need], i)
+            if (target - nums[i]) not in hashMap:
+                hashMap[nums[i]] = i
             else:
-                hashTable[current] = i        
-    
+                return [hashMap[target - nums[i]], i]
