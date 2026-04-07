@@ -1,6 +1,10 @@
 -- Write your PostgreSQL query statement below
 SELECT 
     a1.machine_id,
+    -- Postgres supports either
+        -- ROUND(double precision) or
+        -- ROUND(numeric, integer)
+    -- Thus, we need to explicitly cast it to numeric type
     ROUND(AVG(a2.timestamp - a1.timestamp)::numeric, 3) AS processing_time
 FROM Activity AS a1
 INNER JOIN Activity AS a2
