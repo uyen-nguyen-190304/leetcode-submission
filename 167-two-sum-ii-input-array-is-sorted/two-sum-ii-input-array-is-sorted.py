@@ -1,22 +1,17 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        for i in range(len(numbers) - 1):
-            # Know what we need to search for the second one
-            needed = target - numbers[i]
+        # Two pointers
+        left = 0
+        right = len(numbers) - 1
 
-            # Binary search
-            left = i + 1
-            right = len(numbers) - 1
-            while left <= right:
-                middle = (left + right) // 2
-                # If found such
-                if numbers[middle] == needed:
-                    # Added by one as required
-                    return [i + 1, middle + 1]
-                elif needed < numbers[middle]:
-                    right = middle - 1
-                else:
-                    left = middle + 1
-
-        # Just for defensive
-        return [None, None]
+        # Problem guaranteed that there is a unique solution
+        # Also not use the same element twice
+        while left < right:
+            current = numbers[left] + numbers[right]
+            if current == target:
+                return [left + 1, right + 1]
+            elif current < target:
+                left += 1
+            else:
+                right -= 1
+        
