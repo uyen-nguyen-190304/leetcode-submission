@@ -1,3 +1,3 @@
 # 🧩 LeetCode Submissions
 
-A tidy, searchable archive of my LeetCode solutions following Blind 75 list.
+A tidy, searchable archive of my LeetCode solutions following Neetcode 150 list and more.
